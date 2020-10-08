@@ -1,59 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Estilos/forms.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../Estilos/forms.css" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <form action="guardar.php" method="POST">
-        <h1>Crear Alumnos</h1>
-        <div class="but">
-            <a href="" class="">Regresar</a>
+      <h1>Crear Alumnos</h1>
+      <div class="but">
+        <a href="" class="">Regresar</a>
+      </div>
+      <br />
+      <div class="mainContainer">
+        <div class="imgContainer">
+          <img src="../Assets/pucelogo.png" alt="foto" class="imagen" />
+          <br />
+          <br />
+          <br />
+          <label class="imgTitle">Ingresar Nuevo Alumno</label>
         </div>
-        <br>
-        <div class="mainContainer">
-            <div class="imgContainer">
-                <img src="../Assets/pucelogo.png" alt="foto" class="imagen">
-                <br>
-                <br>
-                <br>
-                <label class="imgTitle">Ingresar Nuevo Alumno</label>
-            </div>
-            <div class="formContainer">
-                <label>Nombre:</label>
-                <br>
-                <input type="text" name="nombre" required="" class="inputs">
-                <br>
-                <br>
-                <label>Apellido:</label>
-                <br>
-                <input type="text" name="apellido" required="" class="inputs">
-                <br>
-                <br>
-                <label>Fecha de Nacimiento:</label>
-                <br>
-                <input type="date" name="nacimiento" required="" class="inputs">
-                <br>
-                <br>
-                <label>Género:</label>
-                <br>
-                <input type="checkbox" name="genero">
-                <br>
-                <br>
-                <label>Foto:</label>
-                <br>
-                <input type="text" name="foto" required="" class="inputs">
-                <br>
-                <br>
-                <input type="submit" value="Guardar" class="but2">
-            </div>
+        <div class="formContainer">
+          <label>Nombre:</label>
+          <br />
+          <input type="text" name="nombre" required="" class="inputs" />
+          <br />
+          <br />
+          <label>Apellido:</label>
+          <br />
+          <input type="text" name="apellido" required="" class="inputs" />
+          <br />
+          <br />
+          <label>Fecha de Nacimiento:</label>
+          <br />
+          <input type="date" name="nacimiento" required="" class="inputs" />
+          <br />
+          <br />
+          <label>Género:</label>
+          <br />
+          <input type="checkbox" name="genero" />
+          <br />
+          <br />
+          <label>Foto:</label>
+          <br />
+          <input type="text" name="foto" required="" class="inputs" />
+          <br />
+          <br />
+          <input type="submit" value="Guardar" class="but2" />
         </div>
+      </div>
     </form>
-
-</body>
-
+  </body>
 </html>
