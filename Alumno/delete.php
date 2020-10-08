@@ -1,15 +1,13 @@
 <?php
-//Presenta los valores de un registro de la tabla persona para una edición
-include("conexion.php");
+require('../procesos/connection.php');
 $nombre; $apellido; $apellido; $genero; $foto; 
-// $id = $_GET["id"];
-// echo("Se va a editar el registro ".$id."<br/>".$sql); exit();
+
 
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<link rel="stylesheet" type="text/css" href="delete.css">
+<link rel="stylesheet" type="text/css" href="../Estilos/delete.css">
     
 </head>
 <body>
@@ -51,7 +49,8 @@ $nombre; $apellido; $apellido; $genero; $foto;
                     ?>
                 </td>
                 <td>
-                    <?php 
+                <?php echo($fila["foto"]); ?>
+                    <!-- <?php 
                         if(isset($fila["foto"]))
                         {
                             $cad = "<img src=\"".$PathImg."/".trim(($fila["foto"]))."\">";
@@ -59,7 +58,7 @@ $nombre; $apellido; $apellido; $genero; $foto;
                         }
                         else
                             echo("&nbsp;");
-                    ?>
+                    ?> -->
                 </td>
             </tr>
                 <?php
@@ -78,7 +77,7 @@ $nombre; $apellido; $apellido; $genero; $foto;
     </table><br><br>
    <div id="botones">
         <input type="submit" value="Eliminar">
-        <input type="button" name="btnCancelar" value="Cancelar" onClick="javascript:location.href='inde.php';">
+        <input type="button" name="btnCancelar" value="Cancelar" onClick="javascript:location.href='../index.html';">
         <input type="hidden" name="txtAccion" value="eliminar" >
    </div>
   </form>

@@ -1,12 +1,12 @@
 <?php
-//Presenta los valores de un registro de la tabla persona para una edición
-include("conexion.php");
+
+require('../procesos/connection.php');
 $nombreMateria; $codigo; 
 $id = $_GET["id"];
 $sql = "SELECT * FROM alummat WHERE id = ".$id;
 $sqlM= "SELECT * FROM materias";
 $materiasA=array();
-// echo("Se va a editar el registro ".$id."<br/>".$sql); exit();
+
 try
 {
     $resultado = $pdo->query($sql);
@@ -28,14 +28,14 @@ catch (PDOException $e)
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<link rel="stylesheet" type="text/css" href="edit.css">
+<link rel="stylesheet" type="text/css" href="../Estilos/edit.css">
 </head>
 <body>
 
 <h3>Editar Materias </h3>
 
 <div>
-  <form action="procesarAlumnoMateria.php" method="POST">
+  <form action="procesar.php" method="POST">
 
     <label for="txtCodigo">Materia:</label><br>
     <?php
@@ -67,7 +67,7 @@ catch (PDOException $e)
     <br><br>
    <div id="botones">
         <input type="submit" value="Editar">
-        <input type="button" name="btnCancelar" value="Cancelar" onClick="javascript:location.href='inde.php';">
+        <input type="button" name="btnCancelar" value="Cancelar" onClick="javascript:location.href='../index.html';">
         <input type="hidden" name="txtAccion" value="editar" >
         <input type="hidden" name="id" value="<?php echo($id);?>">
    </div>

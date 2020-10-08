@@ -1,21 +1,14 @@
 <?php 
 
-include("conexion.php");   
+require('../procesos/connection.php');   
 $accion=$_POST["txtAccion"];
 
-// switch($accion){
-//     case "editar":
-//         $id=$_POST["id"];
-//         EditarRegistro($id);
-//         break;
-        
-// }
 if(isset($_POST["txtAccion"])){
     $id=$_POST["id"];
         EditarRegistro($id);
 }
 
-header("location:inde.php");
+header("location:../index.html");
 
 function EditarRegistro($id){
     

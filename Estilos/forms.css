@@ -1,0 +1,56 @@
+body {
+  font-family: 'Times New Roman', Times, serif;
+  background: repeating-linear-gradient(to bottom, #cac6c6, #efecda);
+  padding: 0.5em 1em;
+}
+a:link {
+  font-weight: bold;
+  text-decoration: none;
+}
+.but {
+  background-color: #3c6faa;
+  width: 4.5em;
+  height: 1.5em;
+  padding: 0.5em;
+  border-radius: 5px;
+}
+.but2 {
+  background-color: #3c6faa;
+  width: 5em;
+  height: 3em;
+  padding: 0.5em;
+  border-radius: 5px;
+}
+.formContainer {
+  background-color: #60a3d9;
+  font-size: larger;
+  color: white;
+  padding: 2em 12em 2em 1em;
+  border-radius: 15px;
+}
+.imgContainer {
+  background-color: #1c6cae;
+  display: block;
+  padding: 5em 7em;
+  font-weight: bold;
+  font-style: italic;
+  border-radius: 15px;
+  color: white;
+}
+.mainContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 4em 7em;
+
+  min-width: 34em;
+}
+.imagen {
+  border-radius: 50%;
+  margin: 0 2.5em;
+}
+.imgTitle {
+  font-size: xx-large;
+}
+.inputs {
+  width: 20em;
+}

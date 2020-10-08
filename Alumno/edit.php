@@ -1,10 +1,8 @@
 <?php
-//Presenta los valores de un registro de la tabla persona para una edición
-include("conexion.php");
+require('../procesos/connection.php');
 $nombre; $apellido; $apellido; $genero; $foto; 
 $id = $_GET["id"];
 $sql = "SELECT * FROM alumnos WHERE id = ".$id;
-// echo("Se va a editar el registro ".$id."<br/>".$sql); exit();
 try
 {
     $resultado = $pdo->query($sql);
@@ -27,7 +25,7 @@ catch (PDOException $e)
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<link rel="stylesheet" type="text/css" href="edit.css">
+<link rel="stylesheet" type="text/css" href="../Estilos/edit.css">
 </head>
 <body>
 
@@ -68,14 +66,14 @@ catch (PDOException $e)
     <label id="genLabel" for="femenino">Femenino</label><br><br>
     <label for="txtFoto">Foto:</label><br>
     <input type="text" name="txtFoto" value="<?php echo(trim($foto))?>"><br><br>
-    <?php
+    <!-- <?php
         if(isset($foto))
             echo("<img src=\"".$PathImg."/".$foto."\"><br/>");
-    ?>
+    ?> -->
     <br><br>
    <div id="botones">
         <input type="submit" value="Editar">
-        <input type="button" name="btnCancelar" value="Cancelar" onClick="javascript:location.href='inde.php';">
+        <input type="button" name="btnCancelar" value="Cancelar" onClick="javascript:location.href='../index.html';">
         <input type="hidden" name="txtAccion" value="editar" >
         <input type="hidden" name="id" value="<?php echo($id);  ?>">
    </div>

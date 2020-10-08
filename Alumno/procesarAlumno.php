@@ -1,6 +1,5 @@
 <?php 
-
-include("conexion.php");   
+require('../procesos/connection.php');
 $accion=$_POST["txtAccion"];
 
 switch($accion){
@@ -10,13 +9,12 @@ switch($accion){
         break;
         
     case "eliminar":
-        // $id=$_POST["id"];
         EliminarRegistro();
         break;
         
 }
 
-header("location:inde.php");
+header("location:../index.html");
 
 function EditarRegistro($id){
     $nombre=$_POST["txtNombre"];
