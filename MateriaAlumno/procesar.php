@@ -2,13 +2,14 @@
 
 require('../procesos/connection.php');   
 $accion=$_POST["txtAccion"];
-
+$id=null;
 if(isset($_POST["txtAccion"])){
     $id=$_POST["id"];
         EditarRegistro($id);
 }
+$pagind=$_GET['pagind'];
 
-header("location:../index.html");
+header("location:../indice/alumat.php?id=".$id."&pagind=".$pagind);
 
 function EditarRegistro($id){
     

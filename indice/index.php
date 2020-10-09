@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Estilos/forms.css">
+    <link rel="stylesheet" type="text/css" href="../Estilos/delete.css">
     <title>Document</title>
     <?php
         require_once('../procesos/connection.php');
@@ -30,8 +30,8 @@
 </head>
 
 <body>
-    <a href="">Agregar nuevo registro</a><br/><br/>
-    <table border="1" style="width: 100%;">
+    <input type="button" value="Agregar nuevo registro" onClick="javascript:location.href='../Alumno/create.html';">
+    <table style="width: 100%;" id="tabla">
         <tr>
             <td colspan="9" style="text-align: center;">
                 <?php
@@ -53,7 +53,10 @@
             <td><b>Imagen</b></td>
             <td><b>&nbsp;</b></td>
             <td><b>&nbsp;</b></td>
-            <td><b>&nbsp;</b></td>
+            <td>
+                <form action="../Alumno/delete.php" method="post">
+                    <input type="submit" name="elimalum" src="../Alumno/delete.php?pagind=<?php echo($pag);?>" style="width: 100%;" value="Eliminar" onClick="javascript:location.href='../Alumno/delete.php?pagind=<?php echo($pag);?>';">
+            </td>
         </tr>
         <?php
             try 
@@ -90,20 +93,16 @@
                             ?>
                         </td>
                         <td>
-                            <a href="alumat.php?id=<?php echo($fila["id"]); ?>&pagind=<?php echo($pag);?>">
-                                Ver materias
-                            </a>
+                            <input type="button" style="width: 100%;" value="Ver Materias" onClick="javascript:location.href='alumat.php?id=<?php echo($fila["id"]); ?>&pagind=<?php echo($pag);?>';">
                         </td>
                         <td>
-                            <a href="editar.php?id=<?php echo($fila["id"]); ?>&pagind=<?php echo($pag);?>">
-                                Editar
-                            </a>
+                            <input type="button" style="width: 100%;" value="Editar" onClick="javascript:location.href='../Alumno/edit.php?id=<?php echo($fila["id"]); ?>&pagind=<?php echo($pag);?>';">
                         </td>
-                        <td>
-                            <a href="eliminar.php?id=<?php echo($fila["id"]); ?>&pagind=<?php echo($pag);?>">
-                                Eliminar
-                            </a>
+                        <td style="text-align: center;"> 
+                            <input type="checkbox" name="list[]" id="" value="<?php echo($fila["id"]); ?>">
                         </td>
+                        </form>
+
                     </tr>
         <?php
                 }

@@ -35,7 +35,10 @@ catch (PDOException $e)
 <h3>Editar Materias </h3>
 
 <div>
-  <form action="procesar.php" method="POST">
+    <?php
+            $pagind=$_GET['pagind'];
+    ?>
+  <form action="procesar.php?pagind=<?php echo($pagind); ?>" method="POST">
 
     <label for="txtCodigo">Materia:</label><br>
     <?php
@@ -67,7 +70,7 @@ catch (PDOException $e)
     <br><br>
    <div id="botones">
         <input type="submit" value="Editar">
-        <input type="button" name="btnCancelar" value="Cancelar" onClick="javascript:location.href='../index.html';">
+        <input type="button" name="btnCancelar" value="Cancelar" onClick="javascript:location.href='../indice/alumat.php?id=<?php echo($id)?>&pagind=<?php echo($pagind);?>';">
         <input type="hidden" name="txtAccion" value="editar" >
         <input type="hidden" name="id" value="<?php echo($id);?>">
    </div>

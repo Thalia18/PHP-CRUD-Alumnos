@@ -14,7 +14,9 @@ switch($accion){
         
 }
 
-header("location:../index.html");
+$pagind=$_GET['pagind'];
+
+header("location:../indice/index.php?pag=".$pagind);
 
 function EditarRegistro($id){
     $nombre=$_POST["txtNombre"];
