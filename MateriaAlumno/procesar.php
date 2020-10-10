@@ -8,8 +8,9 @@ if(isset($_POST["txtAccion"])){
         EditarRegistro($id);
 }
 $pagind=$_GET['pagind'];
+$pagalum=$_GET['pagalum'];
 
-header("location:../indice/alumat.php?id=".$id."&pagind=".$pagind);
+header("location:../indice/alumat.php?id=".$id."&pagind=".$pagind."&pagalum=".$pagalum);
 
 function EditarRegistro($id){
     

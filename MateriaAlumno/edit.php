@@ -37,8 +37,9 @@ catch (PDOException $e)
 <div>
     <?php
             $pagind=$_GET['pagind'];
+            $pagalum=$_GET['pagalum'];
     ?>
-  <form action="procesar.php?pagind=<?php echo($pagind); ?>" method="POST">
+  <form action="procesar.php?pagind=<?php echo($pagind); ?>&pagalum=<?php echo($pagalum);?>" method="POST">
 
     <label for="txtCodigo">Materia:</label><br>
     <?php
