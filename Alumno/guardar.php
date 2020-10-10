@@ -4,10 +4,8 @@ if (isset($_POST['nombre']) && isset($_POST['apellido']) && isset($_POST['nacimi
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
     $nacimiento = $_POST['nacimiento'];
-    if (isset($_POST['genero']))
-        $genero = 1;
-    else
-        $genero = 0;
+
+    $genero = $_POST["genero"];
 
 
     $archivoNombre = $_FILES["foto"]["name"];
@@ -26,13 +24,14 @@ if (isset($_POST['nombre']) && isset($_POST['apellido']) && isset($_POST['nacimi
     if (!((strpos($archivoTipo, "png") || (strpos($archivoTipo, "jpeg")) &&
         ($archivoSize < 300000)))) {
         echo ("Error al subir el archivo, recuerde que solo pueden ser imagenes.");
+        echo "<a href='../index.php'>Regresar</a>";
     } else {
         if (move_uploaded_file($_FILES["foto"]["tmp_name"], "../archivos/" . $archivoNombre)) {
             if ($consulta->execute()) {
                 header("location:../indice/index.php");
             } else {
                 echo "Error no se pudo almacenar los datos";
-                echo $genero;
+                echo "<a href='../index.php'>Regresar</a>";
             }
         } else
             echo ("<br>error");

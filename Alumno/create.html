@@ -39,11 +39,13 @@
         <input type="date" name="nacimiento" required="" class="inputs" />
         <br />
         <br />
-        <label>Género:</label>
+        <label for="genero">Genero:</label><br>
+        <input type="radio" name="genero" value="1">
+        <label id="genLabel" for="masculino">Masculino</label><br>
+        <input type="radio" name="genero" value="0">
+        <label id="genLabel" for="femenino">Femenino</label><br><br>
         <br />
-        <input type="checkbox" name="genero" />
-        <br />
-        <br />
+
         <label>Foto:</label>
         <br />
         <input type="file" name="foto" required="" class="inputs" />
