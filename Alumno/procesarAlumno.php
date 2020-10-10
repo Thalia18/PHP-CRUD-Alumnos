@@ -14,7 +14,10 @@ switch($accion){
         
 }
 
-header("location:../index.html");
+$pagind=$_GET['pagind'];
+
+header("location:../indice/index.php?pag=".$pagind);
+
 
 function EditarRegistro($id){
     $nombre=$_POST["txtNombre"];
@@ -47,7 +50,6 @@ function EditarRegistro($id){
 function EliminarRegistro(){
     try{
         global  $pdo;
-
         foreach(unserialize($_COOKIE["V1"]) as $id){
             $sql = "DELETE FROM alumnos WHERE id=:id";
             $cursor=$pdo->Prepare($sql);

@@ -77,7 +77,7 @@ $nombre; $apellido; $apellido; $genero; $foto;
     </table><br><br>
    <div id="botones">
         <input type="submit" value="Eliminar">
-        <input type="button" name="btnCancelar" value="Cancelar" onClick="javascript:location.href='../index.html';">
+        <input type="button" name="btnCancelar" value="Cancelar" onClick="javascript:location.href='../indice/index.php';">
         <input type="hidden" name="txtAccion" value="eliminar" >
    </div>
   </form>

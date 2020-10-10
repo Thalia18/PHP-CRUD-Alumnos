@@ -20,8 +20,7 @@ if (isset($_POST['nombre']) && isset($_POST['apellido']) && isset($_POST['nacimi
     $consulta->bindParam(5, $foto);
 
     if ($consulta->execute()) {
-        echo "Datos almacenados";
-        echo $genero;
+        header("location:../indice/index.php");
     } else {
         echo "Error no se pudo almacenar los datos";
         echo $genero;

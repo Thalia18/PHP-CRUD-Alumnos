@@ -1,3 +1,7 @@
 ### Deber Crud PHP de Programación Avanzada
 
-Página web echa en php y html para el CRUD de alumnos y materias echo por Santiago Córdova, Thalia Zapata y Alejandro Vivanco
+# Página web hecha en php y html para el CRUD de alumnos y materias hecho por Santiago Córdova, Thalía Zapata y Alejandro Vivanco
+
+# PHP-CRUD-Alumnos
+
+Repositorio del deber de programación avanzada
