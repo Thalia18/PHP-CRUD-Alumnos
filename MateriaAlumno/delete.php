@@ -1,6 +1,9 @@
 <?php
 require('../procesos/connection.php');
 $id = $_GET["id"];
+$pagind = $_GET['pagind'];
+$pagalum=$_GET['pagalum'];
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -13,7 +16,7 @@ $id = $_GET["id"];
 <body>
 
     <h3>Eliminar Materia</h3>
-    <form action="procesar.php" method="POST">
+    <form action="procesar.php?pagind=<?php echo ($pagind);?>&pagalum=<?php echo($pagalum);?>" method="POST">
         <div>
             <table id="tabla">
                 <tr>
@@ -61,12 +64,16 @@ $id = $_GET["id"];
                     $cursor = null;
                     $pdo = null;
                 }
+
+                $id=$_GET['id'];
+                $pagind = $_GET['pagind'];
+                $pagalum=$_GET['pagalum'];
                 ?>
                 <tr>
             </table><br><br>
             <div id="botones">
                 <input type="submit" value="Eliminar">
-                <input type="button" name="btnCancelar" value="Cancelar" onClick="javascript:location.href='../indice/alumat.php';">
+                <input type="button" name="btnCancelar" value="Cancelar" onClick="javascript:location.href='../indice/alumat.php?id=<?php echo($id);?>&pagind=<?php echo ($pagind); ?>&pagalum=<?php echo($pagalum);?>';">
                 <input type="hidden" name="txtAccion" value="eliminar">
                 <input type="hidden" name="id" value="<?php echo($id);?>">
             </div>

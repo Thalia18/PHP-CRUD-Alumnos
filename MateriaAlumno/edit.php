@@ -21,7 +21,9 @@ $sqlM= "SELECT * FROM materias";
     <div>
         <?php
         $pagind = $_GET['pagind'];
-      
+        $pagalum=$_GET['pagalum'];
+
+
         try {
             $materias = $pdo->query($sqlM);
             $cursor = $pdo->query($sql);
@@ -45,7 +47,7 @@ $sqlM= "SELECT * FROM materias";
         }
 
         ?>
-        <form action="procesar.php?pagind=<?php echo ($pagind); ?>" method="POST" enctype="multipart/form-data">
+        <form action="procesar.php?pagind=<?php echo ($pagind);?>&pagalum=<?php echo($pagalum);?>" method="POST" enctype="multipart/form-data">
             <label for="txtId">Id alumno:</label>
             <laber><?php echo (trim($id)) ?></laber><br><br>
 
@@ -64,10 +66,7 @@ $sqlM= "SELECT * FROM materias";
             <br><br>
             <div id="botones">
                 <input type="submit" value="Editar">
-                <?php
-                $pagind = $_GET['pagind'];
-                ?>
-                <input type="button" name="btnCancelar" value="Cancelar" onClick="javascript:location.href='../indice/alumat.php?pag=<?php echo ($pagind); ?>';">
+                <input type="button" name="btnCancelar" value="Cancelar" onClick="javascript:location.href='../indice/alumat.php?id=<?php echo($id);?>&pagind=<?php echo ($pagind); ?>&pagalum=<?php echo($pagalum);?>';">
                 <input type="hidden" name="txtAccion" value="editar">
                 <input type="hidden" name="id" value="<?php echo ($id);  ?>">
                 <input type="hidden" name="codigo" value="<?php echo ($codigo);  ?>">

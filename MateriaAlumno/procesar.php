@@ -26,6 +26,9 @@ try {
     $archivoTipo = $_FILES["txtFoto"]["type"];
     $archivoSize = $_FILES["txtFoto"]["size"];
      
+    $id = $_POST["id"];
+    $pagind=$_GET['pagind'];
+    $pagalum=$_GET['pagalum'];
     $profesor = $_POST["txtProfesor"];
 
     $sql = "UPDATE alummat SET profesor=:profesor, foto=:foto WHERE id=:id AND codigo=:codigo";
@@ -42,7 +45,7 @@ try {
         } else {
             if (move_uploaded_file($_FILES["txtFoto"]["tmp_name"], "../archivosalum/" . $archivoNombre)) {
                 if ($cursor->execute()) {
-                    header("location:../indice/alumat.php");
+                    header("location:../indice/alumat.php?id=".$id."&pagind=".$pagind."&pagalum=".$pagalum);
                 } else {
                     echo "Error no se pudo almacenar los datos";
                     echo "<a href='../index.php'>Regresar</a>";

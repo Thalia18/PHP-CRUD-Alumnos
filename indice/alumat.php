@@ -33,7 +33,7 @@
 </head>
 
 <body>
-    <form action="../MateriaAlumno/delete.php" method="post">
+    <form action="../MateriaAlumno/delete.php?id=<?php echo($id);?>&pagind=<?php echo ($pagind); ?>&pagalum=<?php echo($pagalum);?>" method="post">
         <input type="button" value="Regresar" onClick="javascript:location.href='index.php?pag=<?php echo ($pagind); ?>';">
         <input type="button" value="Agregar Materia" onClick="javascript:location.href='../MateriaAlumno/create.php?id=<?php echo ($id); ?>&pagind=<?php echo ($pagind); ?>&pagalum=<?php echo ($pagalum); ?>';">
 
@@ -71,8 +71,7 @@
                 <th>Carátula</th>
                 <th>&nbsp;</th>
                 <th>
-
-                    <input type="submit" name="elimalum" src="../MateriaAlumno/delete.php?pagind=<?php echo ($pag); ?>" style="width: 100%;" value="Eliminar" onClick="javascript:location.href='../MateriaAlumno/delete.php?pagind=<?php echo ($pag); ?>';">
+                    <input type="submit" name="elimalum" src="../MateriaAlumno/delete.php?id=<?php echo($id);?>&pagind=<?php echo ($pagind); ?>&pagalum=<?php echo($pagalum);?>" style="width: 100%;" value="Eliminar" onClick="javascript:location.href='../MateriaAlumno/delete.php?id=<?php echo($id);?>&pagind=<?php echo ($pagind); ?>&pagalum=<?php echo($pagalum);?>';">
                 </th>
 
 
