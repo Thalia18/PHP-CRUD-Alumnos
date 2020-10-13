@@ -33,8 +33,9 @@
 </head>
 
 <body>
+    <form action="../alummat/delete.php" method="post">
     <input type="button" value="Regresar" onClick="javascript:location.href='index.php?pag=<?php echo($pagind);?>';">
-    <input type="button" value="Editar materias" onClick="javascript:location.href='../MateriaAlumno/edit.php?id=<?php echo($id); ?>&pagind=<?php echo($pagind);?>&pagalum=<?php echo($pagalum);?>';">
+    <input type="button" value="Agregar Materia" onClick="javascript:location.href='../MateriaAlumno/edit.php?id=<?php echo($id); ?>&pagind=<?php echo($pagind);?>&pagalum=<?php echo($pagalum);?>';">
 
     <table style="width: 100%;" id="tabla1">
         <tr style="height: 30px;"></tr>
@@ -66,6 +67,15 @@
         <tr>
             <th onclick="sortTable(0, 'int')">Código de la Materia</th>
             <th onclick="sortTable(1, 'str')">Nombre de la Materia</th>
+            <th onclick="sortTable(2, 'str')">Nombre del profesor</th>
+            <th>Carátula</th>
+            <th>&nbsp;</th>
+            <th>
+
+                <input type="submit" name="elimalum" src="../Alumno/delete.php?pagind=<?php echo ($pag); ?>" style="width: 100%;" value="Eliminar" onClick="javascript:location.href='../Alumno/delete.php?pagind=<?php echo ($pag); ?>';">
+            </th>
+
+
         </tr>
         <?php
             try 
@@ -76,6 +86,22 @@
                     <tr>
                         <td><?php echo($fila["codigo"]); ?></td>
                         <td><?php echo($fila["nombre"]); ?></td>
+                        <td><?php echo($fila["profesor"]); ?></td>
+                        <td>
+                            <?php
+                            if (isset($fila["foto"])) {
+                                echo ("<img src='../archivosalum/" . $fila["foto"] . "' width='80' height='80' />");
+                            } else
+                                echo ("&nbsp;");
+                            ?>
+                        </td>
+                        <td>
+                            <input type="button" style="width: 100%;" value="Editar" onClick="javascript:location.href='../MateriaAlumno/edit.php?id=<?php echo($id); ?>&pagind=<?php echo($pagind);?>&pagalum=<?php echo($pagalum);?>';">
+                        </td>
+                        <td style="text-align: center;">
+                            <input type="checkbox" name="list[]" id="" value="<?php echo ($fila["id"]); ?>">
+                        </td>
+                        </form>
                     </tr>
         <?php
                 }
