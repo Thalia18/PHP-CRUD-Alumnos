@@ -1,5 +1,5 @@
 <?php
-require_once('./procesos/connection.php');
+require_once('../procesos/connection.php');
 $consulta = $pdo->prepare("SELECT * FROM MATERIAS");
 $consulta->execute();
 
@@ -17,7 +17,7 @@ $consulta->execute();
 </head>
 
 <body>
-    <form action="guardar.php" method="POST" enctype="multipart/form-data">
+    <form action="guardar.php?id=<?php echo $_GET["id"]; ?>" method="POST" enctype="multipart/form-data">
         <h1>Crear Matarias</h1>
         <div class="but">
             <a href="../index.php" class="">Regresar</a>
@@ -32,10 +32,12 @@ $consulta->execute();
                 <label class="imgTitle">Ingresar Nueva Materia</label>
             </div>
             <div class="formContainer">
+                <label>Materia:</label>
+                <br>
                 <select name="selector">
                     <?php
-                    if ($consulta->rowCount() >= 1) {
-                        while ($fila = $consulta->fetch()) {
+                    if ($consulta->rowCount() >= 1) :
+                        while ($fila = $consulta->fetch()) :
                     ?>
                             <option value="<?php
                                             echo $fila["codigo"];
@@ -45,11 +47,17 @@ $consulta->execute();
                                 ?>
                             </option>
                     <?php
-                        }
-                    }
+                        endwhile;
+                    endif;
                     ?>
                 </select>
-
+                <br>
+                <br>
+                <label>Profesor:</label>
+                <br>
+                <input type="text" name="profesor" required="" class="inputs">
+                <br>
+                <br>
                 <label>Foto:</label>
                 <br />
                 <input type="file" name="foto" required="" class="inputs" />

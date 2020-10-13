@@ -7,34 +7,35 @@
     <link rel="stylesheet" type="text/css" href="../Estilos/delete.css">
     <title>Document</title>
     <?php
-        $id = $_GET['id'];
-        require_once('../procesos/connection.php');
-        $sql = "SELECT * FROM alummat WHERE id=".$id;
-        $registros = $pdo->query($sql);
-        $cont = $registros->rowCount();
-    
-        $pagalum = 0;
-        if (isset($_GET['pagalum']))
-            if ($_GET['pagalum'] > 0)
-                $pagalum = $_GET['pagalum'];
-    
-    
-        $max = 3; //limit
-        $Nreg = $pagalum * $max; //offset
-    
-        $totalpag = ceil($cont / $max);
-        
-        
-        require_once('../procesos/connection.php');
-        $pagind=$_GET['pagind'];
-        $sql = "SELECT * FROM alummat NATURAL JOIN materias WHERE id=".$id." ORDER BY codigo LIMIT " . $max . " OFFSET " . $Nreg;
-        $registros = $pdo -> query($sql);
+    $id = $_GET['id'];
+    require_once('../procesos/connection.php');
+    $sql = "SELECT * FROM alummat WHERE id=" . $id;
+    $registros = $pdo->query($sql);
+    $cont = $registros->rowCount();
+
+    $pagalum = 0;
+    if (isset($_GET['pagalum']))
+        if ($_GET['pagalum'] > 0)
+            $pagalum = $_GET['pagalum'];
+
+
+    $max = 3; //limit
+    $Nreg = $pagalum * $max; //offset
+
+    $totalpag = ceil($cont / $max);
+
+
+    require_once('../procesos/connection.php');
+    $pagind = $_GET['pagind'];
+    $sql = "SELECT * FROM alummat NATURAL JOIN materias WHERE id=" . $id . " ORDER BY codigo LIMIT " . $max . " OFFSET " . $Nreg;
+    $registros = $pdo->query($sql);
     ?>
 </head>
 
 <body>
-    <input type="button" value="Regresar" onClick="javascript:location.href='index.php?pag=<?php echo($pagind);?>';">
-    <input type="button" value="Editar materias" onClick="javascript:location.href='../MateriaAlumno/edit.php?id=<?php echo($id); ?>&pagind=<?php echo($pagind);?>&pagalum=<?php echo($pagalum);?>';">
+    <input type="button" value="Regresar" onClick="javascript:location.href='index.php?pag=<?php echo ($pagind); ?>';">
+    <input type="button" value="Crear materias" onClick="javascript:location.href='../MateriaAlumno/create.php?id=<?php echo ($id); ?>&pagind=<?php echo ($pagind); ?>&pagalum=<?php echo ($pagalum); ?>';">
+    <input type="button" value="Editar materias" onClick="javascript:location.href='../MateriaAlumno/edit.php?id=<?php echo ($id); ?>&pagind=<?php echo ($pagind); ?>&pagalum=<?php echo ($pagalum); ?>';">
 
     <table style="width: 100%;" id="tabla1">
         <tr style="height: 30px;"></tr>
@@ -51,7 +52,7 @@
             <td id="td2">
                 <?php
                 for ($i = 0; $i < $totalpag; $i++) {
-                    $cad = "<a href=\"alumat.php?id=".$id."&pagind=".$pagind."&pagalum=";
+                    $cad = "<a href=\"alumat.php?id=" . $id . "&pagind=" . $pagind . "&pagalum=";
                     $cad .= strval($i);
                     $cad .= "\">" . ($i + 1) . "</a>  ";
                     echo ($cad);
@@ -68,24 +69,20 @@
             <th onclick="sortTable(1, 'str')">Nombre de la Materia</th>
         </tr>
         <?php
-            try 
-            {
-                foreach($registros as $fila)
-                {
+        try {
+            foreach ($registros as $fila) {
         ?>
-                    <tr>
-                        <td><?php echo($fila["codigo"]); ?></td>
-                        <td><?php echo($fila["nombre"]); ?></td>
-                    </tr>
+                <tr>
+                    <td><?php echo ($fila["codigo"]); ?></td>
+                    <td><?php echo ($fila["nombre"]); ?></td>
+                </tr>
         <?php
-                }
             }
-            catch(PDOException $e)
-            {
-                echo("Error!; ".$e->getMessage()."<br/>");
-            }
-            $registros = null;
-            $pdo = null;
+        } catch (PDOException $e) {
+            echo ("Error!; " . $e->getMessage() . "<br/>");
+        }
+        $registros = null;
+        $pdo = null;
         ?>
     </table>
 
