@@ -2,7 +2,6 @@
 require('../procesos/connection.php');
 $nombre;
 $apellido;
-$apellido;
 $genero;
 $foto;
 

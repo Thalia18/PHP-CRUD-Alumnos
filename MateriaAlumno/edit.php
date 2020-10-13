@@ -30,37 +30,35 @@ $sqlM= "SELECT * FROM materias";
                 $codigo = $fila["codigo"];
                 $profesor = $fila["profesor"];;
                 $foto = $fila["foto"];
+                foreach($materias as $value){
+                    if($value["codigo"]==$fila["codigo"]){
+                        $nombre=$value["nombre"];
+                    }
+                }
             }
             
             $cursor = null;
-            // $materias = null;
+            $materias = null;
             $pdo = null;
         } catch (PDOException $e) {
             echo ("Error: " . $e->getMessage() . "<br/>");
         }
 
         ?>
-        <form action="procesarAlumno.php?pagind=<?php echo ($pagind); ?>" method="POST" enctype="multipart/form-data">
+        <form action="procesar.php?pagind=<?php echo ($pagind); ?>" method="POST" enctype="multipart/form-data">
             <label for="txtId">Id alumno:</label>
             <laber><?php echo (trim($id)) ?></laber><br><br>
 
             <label for="txtCodigo">Codigo de materia:</label>
             <laber><?php echo (trim($codigo)) ?></laber><br><br>
 
-            <label for="txtNombre">Nombre materia:</label><br>
-            <?php 
-                foreach ($materias as $fila) {
-                    if($fila["codigo"]==$codigo){
-                        $select="selected";
-                    }else{
-                        $select="";
-                    }
-                }
-                
-            ?>
+            <label for="txtNombre">Materia:</label>
+            <laber><?php echo (trim($nombre)) ?></laber><br><br>
 
-            <br><br>
-            <label for="txtFoto">Foto:</label><br>
+            <label for="txtProfesor">Profesor:</label>
+            <input type="text" name="txtProfesor"></input><br><br>
+            
+            <label for="txtFoto">Portada:</label><br>
             <input type="file" name="txtFoto" value="<?php echo (trim($foto)) ?>"><br><br>
             
             <br><br>
@@ -69,9 +67,10 @@ $sqlM= "SELECT * FROM materias";
                 <?php
                 $pagind = $_GET['pagind'];
                 ?>
-                <input type="button" name="btnCancelar" value="Cancelar" onClick="javascript:location.href='../indice/index.php?pag=<?php echo ($pagind); ?>';">
+                <input type="button" name="btnCancelar" value="Cancelar" onClick="javascript:location.href='../indice/alumat.php?pag=<?php echo ($pagind); ?>';">
                 <input type="hidden" name="txtAccion" value="editar">
                 <input type="hidden" name="id" value="<?php echo ($id);  ?>">
+                <input type="hidden" name="codigo" value="<?php echo ($codigo);  ?>">
             </div>
         </form>
     </div>

@@ -30,7 +30,7 @@ if (isset($_POST['nombre']) && isset($_POST['apellido']) && isset($_POST['nacimi
             if ($consulta->execute()) {
                 header("location:../indice/index.php");
             } else {
-                echo "Error no se pudo almacenar los datos";
+                echo "Error no se pudo almacenar los datos, revise que los datos sean correctos o que el registro no exista";
                 echo "<a href='../index.php'>Regresar</a>";
             }
         } else
