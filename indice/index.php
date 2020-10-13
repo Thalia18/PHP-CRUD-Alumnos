@@ -60,11 +60,11 @@
         <table style="width: 100%;" id="tabla">
 
             <tr>
-                <th onclick="sortTable(0, 'int')">Id</th>
-                <th onclick="sortTable(1, 'str')">Nombre</th>
-                <th onclick="sortTable(2, 'str')">Apellido</th>
-                <th onclick="sortTable(3, 'str')">Fecha de Nacimiento</th>
-                <th onclick="sortTable(4, 'str')">Género</th>
+                <th onclick="sortTable(0, 'int')">Id ↑↓</th>
+                <th onclick="sortTable(1, 'str')">Nombre ↑↓</th>
+                <th onclick="sortTable(2, 'str')">Apellido ↑↓</th>
+                <th onclick="sortTable(3, 'str')">Fecha de Nacimiento ↑↓</th>
+                <th onclick="sortTable(4, 'str')">Género ↑↓</th>
                 <th>Imagen</th>
                 <th>&nbsp;</th>
                 <th>&nbsp;</th>

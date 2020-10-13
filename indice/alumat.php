@@ -65,9 +65,9 @@
 
         <table style="width: 100%;" id="tabla">
             <tr>
-                <th onclick="sortTable(0, 'int')">Código de la Materia</th>
-                <th onclick="sortTable(1, 'str')">Nombre de la Materia</th>
-                <th onclick="sortTable(2, 'str')">Nombre del profesor</th>
+                <th onclick="sortTable(0, 'int')">Código de la Materia ↑↓</th>
+                <th onclick="sortTable(1, 'str')">Nombre de la Materia ↑↓</th>
+                <th onclick="sortTable(2, 'str')">Nombre del profesor ↑↓</th>
                 <th>Carátula</th>
                 <th>&nbsp;</th>
                 <th>
