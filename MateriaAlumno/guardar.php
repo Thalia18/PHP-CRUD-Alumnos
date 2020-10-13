@@ -8,7 +8,8 @@ $archivoNombre = $_FILES["foto"]["name"];
 $archivoTipo = $_FILES["foto"]["type"];
 $archivoSize = $_FILES["foto"]["size"];
 
-
+$pagind=$_GET['pagind'];
+$pagalum=$_GET['pagalum'];
 
 $consulta = $pdo->prepare("INSERT INTO alummat(id,codigo,profesor,foto) VALUES(?,?,?,?)");
 
@@ -24,7 +25,7 @@ if (!((strpos($archivoTipo, "png") || (strpos($archivoTipo, "jpeg")) &&
 } else {
     if (move_uploaded_file($_FILES["foto"]["tmp_name"], "../archivosalum/" . $archivoNombre)) {
         if ($consulta->execute()) {
-            header("location:../indice/alumat.php?id=" . $_GET["id"]);
+            header("location:../indice/alumat.php?id=" .$_GET["id"]."&pagind=".$pagind."&pagalum=".$pagalum);
         } else {
             echo "Error no se pudo almacenar los datos";
             echo "<a href='../index.php'>Regresar</a>";

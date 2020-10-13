@@ -3,6 +3,8 @@ require_once('../procesos/connection.php');
 $consulta = $pdo->prepare("SELECT * FROM MATERIAS");
 $consulta->execute();
 
+$pagind=$_GET['pagind'];
+$pagalum=$_GET['pagalum'];
 
 ?>
 
@@ -17,10 +19,10 @@ $consulta->execute();
 </head>
 
 <body>
-    <form action="guardar.php?id=<?php echo $_GET["id"]; ?>" method="POST" enctype="multipart/form-data">
+    <form action="guardar.php?id=<?php echo $_GET["id"];?>&pagind=<?php echo $pagind;?>&pagalum=<?php echo $pagalum;?>" method="POST" enctype="multipart/form-data">
         <h1>Crear Materias</h1>
         <div class="but">
-            <a href="../index.php" class="">Regresar</a>
+            <a href="../indice/alumat.php?id=<?php echo $_GET["id"];?>&pagind=<?php echo $pagind;?>&pagalum=<?php echo $pagalum;?>" class="">Regresar</a>
         </div>
         <br />
         <div class="mainContainer">
