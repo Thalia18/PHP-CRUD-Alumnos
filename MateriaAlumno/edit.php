@@ -61,7 +61,7 @@ $sqlM= "SELECT * FROM materias";
             <input type="text" name="txtProfesor"></input><br><br>
             
             <label for="txtFoto">Portada:</label><br>
-            <input type="file" name="txtFoto" value="<?php echo (trim($foto)) ?>"><br><br>
+            <input type="file" name="txtFoto" required="" value="<?php echo (trim($foto)) ?>"><br><br>
             
             <br><br>
             <div id="botones">

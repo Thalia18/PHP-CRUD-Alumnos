@@ -68,7 +68,7 @@ try {
                                                                 ?>>
             <label id="genLabel" for="femenino">Femenino</label><br><br>
             <label for="txtFoto">Foto:</label><br>
-            <input type="file" name="txtFoto" value="<?php echo (trim($foto)) ?>"><br><br>
+            <input type="file" required="" name="txtFoto" value="<?php echo (trim($foto)) ?>"><br><br>
             <!-- <?php
                     if (isset($foto))
                         echo ("<img src=\"" . $PathImg . "/" . $foto . "\"><br/>");
