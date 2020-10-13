@@ -18,7 +18,7 @@ $consulta->execute();
 
 <body>
     <form action="guardar.php?id=<?php echo $_GET["id"]; ?>" method="POST" enctype="multipart/form-data">
-        <h1>Crear Matarias</h1>
+        <h1>Crear Materias</h1>
         <div class="but">
             <a href="../index.php" class="">Regresar</a>
         </div>

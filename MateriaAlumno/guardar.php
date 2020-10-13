@@ -2,15 +2,17 @@
 require_once('../procesos/connection.php');
 $codigo_materia = $_POST['selector'];
 $profesor = $_POST['profesor'];
-
+$alumno_id = $_GET["id"];
+////////archivo
 $archivoNombre = $_FILES["foto"]["name"];
 $archivoTipo = $_FILES["foto"]["type"];
 $archivoSize = $_FILES["foto"]["size"];
 
 
-$consulta = $pdo->prepare("INSERT INTO alumnat(id,codigo,profesor,foto) VALUES(?,?,?,?)");
 
-$consulta->bindParam(1, $_GET["id"]);
+$consulta = $pdo->prepare("INSERT INTO alummat(id,codigo,profesor,foto) VALUES(?,?,?,?)");
+
+$consulta->bindParam(1, $alumno_id);
 $consulta->bindParam(2, $codigo_materia);
 $consulta->bindParam(3, $profesor);
 $consulta->bindParam(4, $archivoNombre);
@@ -22,7 +24,7 @@ if (!((strpos($archivoTipo, "png") || (strpos($archivoTipo, "jpeg")) &&
 } else {
     if (move_uploaded_file($_FILES["foto"]["tmp_name"], "../archivosalum/" . $archivoNombre)) {
         if ($consulta->execute()) {
-            header("location:../indice/index.php");
+            header("location:../indice/alumat.php?id=" . $_GET["id"]);
         } else {
             echo "Error no se pudo almacenar los datos";
             echo "<a href='../index.php'>Regresar</a>";
