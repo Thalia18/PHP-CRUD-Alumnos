@@ -34,7 +34,6 @@ function EditarRegistro($id)
     }
     try {
         global $pdo;
-
         $sql = "UPDATE alumnos SET nombre=:nombre, apellido=:apellido, foto=:foto, fechanacimiento=:fecha, genero=:genero WHERE id=:id";
         $cursor = $pdo->Prepare($sql);
         $cursor->bindParam(':nombre', $nombre);

@@ -33,7 +33,7 @@
 </head>
 
 <body>
-    <form action="../alummat/delete.php" method="post">
+    <form action="../MateriaAlumno/delete.php" method="post">
         <input type="button" value="Regresar" onClick="javascript:location.href='index.php?pag=<?php echo ($pagind); ?>';">
         <input type="button" value="Agregar Materia" onClick="javascript:location.href='../MateriaAlumno/create.php?id=<?php echo ($id); ?>&pagind=<?php echo ($pagind); ?>&pagalum=<?php echo ($pagalum); ?>';">
 
@@ -72,7 +72,7 @@
                 <th>&nbsp;</th>
                 <th>
 
-                    <input type="submit" name="elimalum" src="../Alumno/delete.php?pagind=<?php echo ($pag); ?>" style="width: 100%;" value="Eliminar" onClick="javascript:location.href='../Alumno/delete.php?pagind=<?php echo ($pag); ?>';">
+                    <input type="submit" name="elimalum" src="../MateriaAlumno/delete.php?pagind=<?php echo ($pag); ?>" style="width: 100%;" value="Eliminar" onClick="javascript:location.href='../MateriaAlumno/delete.php?pagind=<?php echo ($pag); ?>';">
                 </th>
 
 
@@ -94,10 +94,10 @@
                             ?>
                         </td>
                         <td>
-                            <input type="button" style="width: 100%;" value="Editar" onClick="javascript:location.href='../MateriaAlumno/edit.php?id=<?php echo ($id); ?>&pagind=<?php echo ($pagind); ?>&pagalum=<?php echo ($pagalum); ?>';">
+                            <input type="button" style="width: 100%;" value="Editar" onClick="javascript:location.href='../MateriaAlumno/edit.php?id=<?php echo ($id); ?>&pagind=<?php echo ($pagind); ?>&pagalum=<?php echo ($pagalum); ?>&codigo=<?php echo ($fila["codigo"]); ?>';">
                         </td>
                         <td style="text-align: center;">
-                            <input type="checkbox" name="list[]" id="" value="<?php echo ($fila["id"]); ?>">
+                            <input type="checkbox" name="list[]" id="" value="<?php echo ($fila["codigo"]); ?>">
                         </td>
     </form>
     </tr>

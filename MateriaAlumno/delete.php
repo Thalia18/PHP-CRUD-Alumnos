@@ -1,11 +1,6 @@
 <?php
 require('../procesos/connection.php');
-$nombre;
-$apellido;
-$genero;
-$foto;
-
-
+$id = $_GET["id"];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -17,43 +12,41 @@ $foto;
 
 <body>
 
-    <h3>Eliminar Alumno</h3>
-    <form action="procesarAlumno.php" method="POST">
+    <h3>Eliminar Materia</h3>
+    <form action="procesar.php" method="POST">
         <div>
             <table id="tabla">
                 <tr>
-                    <td><b>Id</b></td>
-                    <td><b>Nombre</b></td>
-                    <td><b>Apellido</b></td>
-                    <td><b>Fecha de nacimiento</b></td>
-                    <td><b>Genero</b></td>
-                    <td><b>Foto</b></td>
+                    <td><b>Id alumno</b></td>
+                    <td><b>Código materia</b></td>
+                    <td><b>Materia</b></td>
+                    <td><b>Profesor</b></td>
+                    <td><b>Portada</b></td>
                 </tr>
                 <?php
                 if (isset($_POST["list"])) {
                     setcookie('V1', serialize($_POST['list']), time() + (60 * 60 * 24 * 365));
                     try {
-                        foreach ($_POST["list"] as $id) {
-                            $sql = "SELECT * FROM alumnos WHERE id = " . $id;
+                        foreach ($_POST["list"] as $codigo) {
+                            $sql = "SELECT * FROM alummat WHERE id = ".$id. "AND codigo = ".$codigo;
                             $cursor = $pdo->query($sql);
                             foreach ($cursor as $fila) {
+                                $sqlM = "SELECT * FROM materias";
+                                     $cursorM = $pdo->query($sqlM);
+                                        foreach($cursorM as $value){
+                                            if($fila["codigo"]==$value["codigo"]){
+                                                $nombre=$value["nombre"];
+                                            }
+                                        }
                 ?>
                                 <tr>
                                     <td><?php echo ($fila["id"]); ?></td>
-                                    <td><?php echo ($fila["nombre"]); ?></td>
-                                    <td><?php echo ($fila["apellido"]); ?></td>
-                                    <td><?php echo ($fila["fechanacimiento"]); ?></td>
+                                    <td><?php echo ($fila["codigo"]); ?></td>
+                                    <td><?php echo ($nombre); ?></td>
+                                    <td><?php echo ($fila["profesor"]); ?></td>
                                     <td>
                                         <?php
-                                        if ($fila["genero"])
-                                            echo ("Masculino");
-                                        else
-                                            echo ("Femenino");
-                                        ?>
-                                    </td>
-                                    <td>
-                                        <?php
-                                        echo ("<img src='../archivos/" . $fila["foto"] . "' width='80' height='80' />");
+                                        echo ("<img src='../archivosalum/" . $fila["foto"] . "' width='80' height='80' />");
                                         ?>
 
 
@@ -73,8 +66,9 @@ $foto;
             </table><br><br>
             <div id="botones">
                 <input type="submit" value="Eliminar">
-                <input type="button" name="btnCancelar" value="Cancelar" onClick="javascript:location.href='../indice/index.php';">
+                <input type="button" name="btnCancelar" value="Cancelar" onClick="javascript:location.href='../indice/alumat.php';">
                 <input type="hidden" name="txtAccion" value="eliminar">
+                <input type="hidden" name="id" value="<?php echo($id);?>">
             </div>
     </form>
     </div>
