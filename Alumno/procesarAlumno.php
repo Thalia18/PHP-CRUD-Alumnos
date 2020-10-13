@@ -74,7 +74,7 @@ function EliminarRegistro()
             $sql = "SELECT foto FROM alumnos WHERE id=" . $id;
             $registros = $pdo->query($sql);
             $registro = $registros->fetch();
-            unlink("../archivos/" . $registro["foto"]);
+            unlink("../archivos/" . trim($registro['foto']));
             $sql = "DELETE FROM alumnos WHERE id=:id";
             $cursor = $pdo->Prepare($sql);
             $cursor->bindParam(':id', $id);
