@@ -43,7 +43,7 @@ function EditarRegistro($id)
         $cursor->bindParam(':genero', $genero);
         $cursor->bindParam(':id', $id);
 
-        if (!((strpos($archivoTipo, "png") || (strpos($archivoTipo, "jpeg")) &&
+        if (!((strpos($archivoTipo, "png") || (strpos($archivoTipo, "jpeg")) || (strpos($archivoTipo, "jpg")) &&
             ($archivoSize < 300000)))) {
             echo ("Error al subir el archivo, recuerde que solo pueden ser imagenes.");
             echo "<a href='../index.php'>Regresar</a>";

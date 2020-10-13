@@ -8,8 +8,8 @@ $archivoNombre = $_FILES["foto"]["name"];
 $archivoTipo = $_FILES["foto"]["type"];
 $archivoSize = $_FILES["foto"]["size"];
 
-$pagind=$_GET['pagind'];
-$pagalum=$_GET['pagalum'];
+$pagind = $_GET['pagind'];
+$pagalum = $_GET['pagalum'];
 
 $consulta = $pdo->prepare("INSERT INTO alummat(id,codigo,profesor,foto) VALUES(?,?,?,?)");
 
@@ -18,14 +18,14 @@ $consulta->bindParam(2, $codigo_materia);
 $consulta->bindParam(3, $profesor);
 $consulta->bindParam(4, $archivoNombre);
 
-if (!((strpos($archivoTipo, "png") || (strpos($archivoTipo, "jpeg")) &&
+if (!((strpos($archivoTipo, "png") || (strpos($archivoTipo, "jpeg")) || (strpos($archivoTipo, "jpg")) &&
     ($archivoSize < 300000)))) {
     echo ("Error al subir el archivo, recuerde que solo pueden ser imagenes.");
     echo "<a href='../index.php'>Regresar</a>";
 } else {
     if (move_uploaded_file($_FILES["foto"]["tmp_name"], "../archivosalum/" . $archivoNombre)) {
         if ($consulta->execute()) {
-            header("location:../indice/alumat.php?id=" .$_GET["id"]."&pagind=".$pagind."&pagalum=".$pagalum);
+            header("location:../indice/alumat.php?id=" . $_GET["id"] . "&pagind=" . $pagind . "&pagalum=" . $pagalum);
         } else {
             echo "Error no se pudo almacenar los datos";
             echo "<a href='../index.php'>Regresar</a>";

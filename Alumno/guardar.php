@@ -21,7 +21,7 @@ if (isset($_POST['nombre']) && isset($_POST['apellido']) && isset($_POST['nacimi
     $consulta->bindParam(4, $genero);
     $consulta->bindParam(5, $archivoNombre);
 
-    if (!((strpos($archivoTipo, "png") || (strpos($archivoTipo, "jpeg")) &&
+    if (!((strpos($archivoTipo, "png") || (strpos($archivoTipo, "jpeg")) || (strpos($archivoTipo, "jpg")) &&
         ($archivoSize < 300000)))) {
         echo ("Error al subir el archivo, recuerde que solo pueden ser imagenes.");
         echo "<a href='../index.php'>Regresar</a>";
